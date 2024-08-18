@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ZapReduce</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 500px;
+        text-align: center;
+      }
+      h1 {
+        font-size: 2.5em;
+        margin-bottom: 0.5em;
+        color: #333;
+      }
+      h2 {
+        font-size: 1.2em;
+        margin-bottom: 1em;
+        color: #777;
+      }
+      textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #ccc;
+        margin-bottom: 15px;
+        font-size: 1em;
+        resize: vertical;
+      }
+      input[type="submit"] {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1em;
+      }
+      input[type="submit"]:hover {
+        background-color: #0056b3;
+      }
+      pre {
+        text-align: left;
+        background-color: #f8f9fa;
+        padding: 10px;
+        border-radius: 4px;
+        border: 1px solid #e9ecef;
+        max-height: 200px;
+        overflow-y: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>ZapReduce</h1>
+      <h2>A Map Reducer by Sugoto Basu</h2>
+      <form id="mapreduce-form">
+        <label for="text-input">Enter Text:</label><br />
+        <textarea
+          id="text-input"
+          name="text"
+          rows="4"
+          placeholder="Enter some text here..."
+        ></textarea
+        ><br />
+        <input type="submit" value="Submit" />
+      </form>
+      <h3>Results:</h3>
+      <pre id="result"></pre>
+    </div>
+
+    <script>
+      document.getElementById("mapreduce-form").onsubmit = async function (
+        event
+      ) {
+        event.preventDefault();
+        const textInput = document.getElementById("text-input").value;
+        const response = await fetch("/process", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ text: textInput }),
+        });
+
+        const result = await response.json();
+        document.getElementById("result").textContent = JSON.stringify(
+          result.word_counts,
+          null,
+          2
+        );
+      };
+    </script>
+  </body>
+</html>
