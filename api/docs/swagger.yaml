@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  title: ZapReduce API
+  version: 1.0.0
+paths:
+  /process:
+    post:
+      summary: Process text using MapReduce
+      requestBody:
+        description: Input text
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                text:
+                  type: string
+      responses:
+        '200':
+          description: Word counts
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  word_counts:
+                    type: object
+                    additionalProperties:
+                      type: integer
