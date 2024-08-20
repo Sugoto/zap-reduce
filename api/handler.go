@@ -11,7 +11,6 @@ type RequestBody struct {
 	Text string `json:"text"`
 }
 
-// ResponseBody is the structure for returning word counts.
 type ResponseBody struct {
 	WordCounts map[string]int `json:"word_counts"`
 }
