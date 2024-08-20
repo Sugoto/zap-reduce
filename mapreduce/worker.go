@@ -8,7 +8,6 @@ func Execute(text string) map[string]int {
 		intermediateResults = append(intermediateResults, Map(chunk))
 	}
 
-	// Reduce phase
 	finalResult := Reduce(intermediateResults)
 
 	return finalResult
