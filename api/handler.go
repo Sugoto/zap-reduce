@@ -31,7 +31,6 @@ func ProcessText(w http.ResponseWriter, r *http.Request) {
 	}
 
 	wordCounts := mapreduce.Execute(reqBody.Text)
-
 	respBody := ResponseBody{WordCounts: wordCounts}
 	w.Header().Set("Content-Type", "application/json")
 	json.NewEncoder(w).Encode(respBody)
