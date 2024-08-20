@@ -7,7 +7,6 @@ import (
 	"net/http"
 )
 
-// RequestBody is the structure to capture input text.
 type RequestBody struct {
 	Text string `json:"text"`
 }
