@@ -4,7 +4,6 @@ import (
 	"strings"
 )
 
-// Map function splits text into words and counts them.
 func Map(text string) map[string]int {
 	wordCounts := make(map[string]int)
 	words := strings.Fields(text)
