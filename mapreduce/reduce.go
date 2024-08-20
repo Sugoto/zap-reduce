@@ -1,6 +1,5 @@
 package mapreduce
 
-// Reduce function aggregates word counts.
 func Reduce(intermediate []map[string]int) map[string]int {
 	finalCounts := make(map[string]int)
 	for _, counts := range intermediate {
