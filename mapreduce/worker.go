@@ -3,7 +3,6 @@ package mapreduce
 func Execute(text string) map[string]int {
 	chunks := []string{text}
 
-	// Map phase
 	var intermediateResults []map[string]int
 	for _, chunk := range chunks {
 		intermediateResults = append(intermediateResults, Map(chunk))
