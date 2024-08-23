@@ -31,14 +31,11 @@ func processTextHandler(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	// Serve static files (HTML, CSS, JS)
 	fs := http.FileServer(http.Dir("static"))
 	http.Handle("/", fs)
 
-	// API endpoint for processing text
 	http.HandleFunc("/process", processTextHandler)
 
-	// Start the server on port 8080
 	port := "8080"
 	log.Printf("Starting server on :%s...", port)
 	if err := http.ListenAndServe(":"+port, nil); err != nil {
