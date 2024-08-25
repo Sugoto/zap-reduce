@@ -4,6 +4,7 @@ import (
 	"strings"
 )
 
+// Mapper function
 func Map(text string) map[string]int {
 	wordCounts := make(map[string]int)
 	words := strings.Fields(text)
