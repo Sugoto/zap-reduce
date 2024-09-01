@@ -1,5 +1,6 @@
 package mapreduce
 
+// Execute both the map and reduce functions
 func Execute(text string) map[string]int {
 	chunks := []string{text}
 
