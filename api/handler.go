@@ -15,6 +15,7 @@ type ResponseBody struct {
 	WordCounts map[string]int `json:"word_counts"`
 }
 
+// Processing Text
 func ProcessText(w http.ResponseWriter, r *http.Request) {
 	var reqBody RequestBody
 	body, err := ioutil.ReadAll(r.Body)
